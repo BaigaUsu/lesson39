@@ -9,8 +9,11 @@
         contact: {
             pattern: /^[a-z0-9.]+@[a-z0-9.-]+\.[a-z]{2,}$/i
         },
-        password: {},
+        password: {
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=])[A-Za-z\d!@#$%^&*()_+\-=]{8,}$/
+        },
     }
+
     Object.entries(elemsData).forEach((item) => {
         const [name, {pattern}] = item
         const elem = form.elements[name]
