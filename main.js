@@ -25,6 +25,18 @@
                 elem.classList.remove('error')
             }
         };
+        return isValid = true
     })
+    if (isValid) {
+        form.style.display = 'none';
+
+        const fullname = form.elements['fullname'].value;
+        const contact = form.elements['contact'].value;
+        const messageText = `Здравствуйте, ${fullname}! Мы свяжемся с вами по email: ${contact}`;
+
+        const messageElement = document.createElement('div');
+        messageElement.textContent = messageText;
+        form.parentNode.insertBefore(messageElement, form.nextSibling);
+    }
  })
 
