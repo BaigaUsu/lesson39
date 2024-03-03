@@ -52,6 +52,16 @@
         errorMessageElement.textContent = message;
         errorMessageElement.classList.add('error-message');
         elem.parentNode.insertBefore(errorMessageElement, elem.nextSibling);
+
+        const removeErrorMessage = () => {
+            if (elem.value.match(elem.getAttribute('pattern'))) {
+                errorMessageElement.remove();
+                elem.classList.remove('error');
+                elem.removeEventListener('input', removeErrorMessage);
+            }
+        };
+
+        elem.addEventListener('input', removeErrorMessage);
     }
  })
 
